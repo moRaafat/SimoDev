@@ -1,4 +1,4 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, Menu} = require('electron')
 const path = require('path')
 const url = require('url')
 const ipc = require('electron').ipcMain
@@ -30,6 +30,42 @@ function createWindow () {
         top = null
     })
 
+    //Top menu
+    var menu = Menu.buildFromTemplate([
+    {
+        label:'Menu',
+        submenu:[
+        {
+            label:'Test'
+        },
+        {type:'separator'},
+        {
+            label:'Exit',
+            click(){
+                app.quit()
+            }
+        }
+        ]
+    },    
+    {
+        label:'Info',
+        submenu:[
+        {
+            label:'Debug',
+            click(){
+                // Open the DevTools.
+                top.webContents.openDevTools()
+            }
+        },
+        {
+            role: 'reload'
+        }
+        ]
+    }
+    ])
+    Menu.setApplicationMenu(menu)
+
+    //Child window
     child = new BrowserWindow({
         frame: false,
         alwaysOnTop: true,

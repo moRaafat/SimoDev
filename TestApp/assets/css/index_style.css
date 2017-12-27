@@ -1,0 +1,110 @@
+.vertical-menu .mdl-tabs__tab-bar {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    border-bottom: none;
+  }
+  
+  .vertical-menu .menu a.vertical-menu-header {
+    border-left: 4px solid transparent;
+    padding: 10px 24px 10px 10px;
+    text-transform: capitalize;
+    width: 240px;
+    text-align: left;
+    color: #455A64;
+    text-decoration: none;
+    letter-spacing: 2px;
+  }
+  
+  .vertical-menu .mdl-tabs__tab-bar .mdl-tabs__tab {
+    border-left: 4px solid transparent;
+    padding: 0 24px 0 10px;
+    text-transform: capitalize;
+    width: 240px;
+    text-align: left;
+    color: #455A64
+  }
+  
+  .vertical-menu .mdl-tabs__tab-bar .mdl-tabs__tab .mdl-chip__contact {
+    background-color: #607D8B;
+    color: #CFD8DC;
+  }
+  
+  .vertical-menu .mdl-tabs__tab-bar .mdl-tabs__tab:hover {
+    color: rgba(0, 0, 0, .87);
+    border-left: 4px solid transparent;
+  }
+  
+  .vertical-menu .mdl-tabs__tab-bar .mdl-tabs__tab:hover .mdl-chip__contact {
+    color: #fff;
+    background-color: #546E7A;
+  }
+  
+  .vertical-menu .mdl-tabs__tab-bar .mdl-tabs__tab.is-active {
+    color: rgba(0, 0, 0, .97);
+    border-left: 4px solid #FF6E40;
+  }
+  
+  .vertical-menu .mdl-tabs__tab-bar .mdl-tabs__tab.is-active .mdl-chip__contact {
+    color: #FFF;
+  }
+  
+  .vertical-menu.mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after {
+    display: none;
+  }
+  
+  .menu:hover,
+  nav.menu.expanded {
+    width: 240px;
+    overflow: hidden;
+  }
+  
+  nav.menu {
+    background: #ECEFF1;
+    border-right: 1px solid #CFD8DC;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    width: 58px;
+    overflow: hidden;
+    -webkit-transition: width .06s linear;
+    transition: width .09s linear;
+    -webkit-transform: translateZ(0) scale(1, 1);
+    z-index: 1000;
+  }
+  
+  nav.menu .mdl-tabs__tab-bar a {
+    -webkit-transform: translateZ(0) scale(1, 1);
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+  }
+  
+  .no-touch .scrollable.hover {
+    overflow-y: hidden;
+  }
+  
+  .no-touch .scrollable.hover:hover {
+    overflow-y: auto;
+    overflow: visible;
+  }
+  
+  a:hover,
+  a:focus {
+    text-decoration: none;
+  }
+  
+  nav.patient-menu {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+  
+  .mdl-grid {
+    margin-left: 60px;
+  }

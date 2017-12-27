@@ -2,12 +2,41 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Control panel</title>
+    <link rel='stylesheet prefetch' href='https://code.getmdl.io/1.2.1/material.indigo-pink.min.css'>
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+    <link rel="stylesheet" href="../assets/css/index_style.css">    
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <div class="vertical-menu mdl-tabs mdl-js-tabs">
+        <nav class="menu">
+      
+            <div class="mdl-tabs__tab-bar">
+                <a href="#" class="vertical-menu-header">
+                    <span class="mdl-chip__contact mdl-color--blue-grey-50 mdl-color-text--blue-grey-500">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                    </span> 
+                    Organization chart
+                    <i class="fa fa-angle-right fa-fw" aria-hidden="true"></i>
+                </a>
+                <div class="vertical-scroll">
+                    <a href="#users-panel" class="mdl-tabs__tab" id="a_users"><span class="mdl-chip__contact">U</span> Users</a>
+                    <a href="#offices-panel" class="mdl-tabs__tab" id="a_offices"><span class="mdl-chip__contact">O</span> Offices</a>
+                    <a href="#groups-panel" class="mdl-tabs__tab" id="a_groups"><span class="mdl-chip__contact">G</span> Groups</a>
+                </div>
+            </div>
+        </nav>
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col">
+                <div class="mdl-tabs__panel" id="users-panel"></div>
+                <div class="mdl-tabs__panel" id="offices-panel"></div>
+                <div class="mdl-tabs__panel" id="groups-panel"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src='https://code.getmdl.io/1.2.1/material.min.js'></script>
+    <script src='https://use.fontawesome.com/931d0381fb.js'></script>
+    <script src="index.js"></script>
   </body>
 </html>
