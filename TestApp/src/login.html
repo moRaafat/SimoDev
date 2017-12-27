@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/login_style.css">
+</head>
+
+<body>    
+    <div id="wrapper">
+        <div id="loaderDiv" class="loading">Loading&#8230;</div>        
+        <div id="flashDiv" class="flash"></div>
+        <form id="loginForm" class="login-form" action="" method="post">
+        
+            <div class="header">
+            <h1>Admin</h1>
+            <span>Fill out the form below to login to the application control panel.</span>
+            </div>
+        
+            <div class="content">
+            <input id="username" type="text" class="input username" placeholder="Username" />
+            <div class="user-icon"></div>
+            <input id="password" type="password" class="input password" placeholder="Password" />
+            <div class="pass-icon"></div>		
+            </div>
+
+            <div class="footer">
+            <input type="submit" id="loginBtn" value="Login" class="button" />
+            <input type="button" id="exitBtn" value="Exit" class="register" />
+            </div>
+        
+        </form>
+
+    </div>
+    <script src="login.js"></script> 
+
+</body>
+</html>

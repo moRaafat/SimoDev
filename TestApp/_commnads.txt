@@ -1,0 +1,9 @@
+
+//create a package.json (The -y flag provides default options automatically)
+npm init -y
+
+//install Electron it as a development dependency in your app
+npm install electron --save-dev --save-exact
+
+//install jquery module
+npm install jquery --save
