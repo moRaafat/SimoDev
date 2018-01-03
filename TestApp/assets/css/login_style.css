@@ -76,7 +76,7 @@ LOADER
     position: fixed;
     top: 10px;
     left: 50px;
-    width: 305px;
+    width: 303px;
     height: 412px;
     background-color: rgba(0,0,0,0.3);
   }
@@ -183,7 +183,7 @@ FLASH
       position:fixed; 
       top: 10px;
       left: 50px;
-      width: 305px;
+      width: 303px;
       height: 412px;
       background-color:rgba(255,0,0,0.5);
       display:none;
