@@ -1,12 +1,16 @@
 const {app, BrowserWindow, Menu} = require('electron')
 const path = require('path')
 const url = require('url')
+const axios = require('axios');
 const ipc = require('electron').ipcMain
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let top
 let child
+
+// Global reference to connection string
+let connectionString = ''
 
 function createWindow () {
     // Create the browser window.
@@ -24,6 +28,15 @@ function createWindow () {
 
     // Emitted when the window is closed.
     top.on('closed', () => {
+
+        //Logout
+        if(connectionString != '')
+        {
+            axios.post('http://127.0.0.1/ArchiflowService/Login.svc/json/logout', {
+                oSessionInfo: {SessionId:connectionString}
+            })        
+        }
+
         // Dereference the window object, usually you would store windows
         // in an array if your app supports multi windows, this is the time
         // when you should delete the corresponding element.
@@ -124,6 +137,9 @@ ipc.on('exit-notify', function (event, arg) {
 
 //Login OK notification
 ipc.on('login-ok-notify', function (event, arg) {
+    connectionString = arg    
     child.close()
     top.show()
+
+    top.webContents.send('connection-string-notify', arg)
 })
