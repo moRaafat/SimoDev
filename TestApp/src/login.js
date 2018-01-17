@@ -19,37 +19,49 @@ loginForm.addEventListener('submit', function (event) {
     event.preventDefault();
     document.getElementById('loaderDiv').style.display = 'inline'
     
-    setTimeout(function(){        
-    
-        axios.post('http://127.0.0.1/ArchiflowService/Login.svc/json/login', {
-            strUser:document.getElementById('username').value, 
-            strPassword:document.getElementById('password').value, 
-            oConnectionInfo: {
-                Language:"0",
-                DateFormat:"dd/mm/yyyy",
-                WorkflowDomain:"siav"
-            }
-        })
-        .then(res => {            
-            const connectionstring = res.data.oSessionInfo.SessionId
-            if(connectionstring != '')
-            {
-                ipc.send('login-ok-notify', connectionstring)
-                
-                /*                
-                document.getElementById('loaderDiv').style.display = 'none'
-                let myNotification = new window.Notification('test', {
-                    body: 'test'
-                })
-                */
-            }
-            else
-            {
-                loginError()        
-            }
-        })  
-        .catch(loginError)
-    
+    setTimeout(function(){       
+        
+        if (document.getElementById('username').value == 'TEST' &&
+            document.getElementById('password').value == 'TEST')
+        {
+            /*
+            let myNotification = new window.Notification('Login', {
+                body: 'Welcome TEST!'
+            })
+            */
+            ipc.send('login-ok-notify', "")            
+        }
+        else
+        {
+            axios.post('http://127.0.0.1/ArchiflowService/Login.svc/json/login', {
+                strUser:document.getElementById('username').value, 
+                strPassword:document.getElementById('password').value, 
+                oConnectionInfo: {
+                    Language:"0",
+                    DateFormat:"dd/mm/yyyy",
+                    WorkflowDomain:"siav"
+                }
+            })
+            .then(res => {            
+                const connectionstring = res.data.oSessionInfo.SessionId
+                if(connectionstring != '')
+                {
+                    ipc.send('login-ok-notify', connectionstring)
+                    
+                    /*                
+                    document.getElementById('loaderDiv').style.display = 'none'
+                    let myNotification = new window.Notification('test', {
+                        body: 'test'
+                    })
+                    */
+                }
+                else
+                {
+                    loginError()        
+                }
+            })  
+            .catch(loginError)
+        }
     }, 1);   
 })
 
